@@ -2,6 +2,8 @@ package com.example.web.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
 import com.example.web.model.Todo;
 
 import java.util.ArrayList;
@@ -12,8 +14,11 @@ import java.time.ZoneOffset;
 
 @Controller
 public class IndexController {
+    
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        List<Todo> todoList = todoList();
+        model.addAttribute("todoList", todoList);
         return "index";
     }
 

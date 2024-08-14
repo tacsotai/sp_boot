@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>TODO LIST</title>
 </head>
 <body>
-    this is top page
+    やること一覧
+    <table>
+        <thead>
+            <tr>
+              <th scope="col">担当者</th>
+              <th scope="col">タイトル</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="todo: ${todoList}">
+                <td th:text="${todo.user}"></td>
+                <td th:text="${todo.title}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
